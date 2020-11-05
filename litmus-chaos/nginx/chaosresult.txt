@@ -1,0 +1,55 @@
+Name:         nginx-chaos-container-kill
+Namespace:    nginx
+Labels:       app.kubernetes.io/part-of=litmus
+              chaosUID=6cff3341-9e51-471b-93a4-651056502635
+              controller-uid=5c9f890f-51ae-4e0c-9ef2-31276eda9298
+              job-name=container-kill-d7kb38
+              name=nginx-chaos-container-kill
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2020-11-05T17:21:28Z
+  Generation:          2
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/part-of:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentstatus:
+          .:
+          f:failStep:
+          f:phase:
+          f:verdict:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2020-11-05T17:22:37Z
+  Resource Version:  39114
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/nginx/chaosresults/nginx-chaos-container-kill
+  UID:               4f7efc42-85df-4469-9e40-098542639fcd
+Spec:
+  Engine:      nginx-chaos
+  Experiment:  container-kill
+Status:
+  Experimentstatus:
+    Fail Step:  N/A
+    Phase:      Completed
+    Verdict:    Pass
+Events:
+  Type    Reason   Age    From                         Message
+  ----    ------   ----   ----                         -------
+  Normal  Awaited  2m11s  container-kill-d7kb38-gspkk  experiment: container-kill, Result: Awaited
+  Normal  Pass     62s    container-kill-d7kb38-gspkk  experiment: container-kill, Result: Pass

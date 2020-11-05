@@ -1,0 +1,111 @@
+Name:         nginx-chaos
+Namespace:    nginx
+Labels:       <none>
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosEngine
+Metadata:
+  Creation Timestamp:  2020-11-05T17:20:54Z
+  Finalizers:
+    chaosengine.litmuschaos.io/finalizer
+  Generation:  19
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .:
+          f:kubectl.kubernetes.io/last-applied-configuration:
+      f:spec:
+        .:
+        f:annotationCheck:
+        f:appinfo:
+          .:
+          f:appkind:
+          f:applabel:
+          f:appns:
+        f:chaosServiceAccount:
+        f:jobCleanUpPolicy:
+    Manager:      kubectl-client-side-apply
+    Operation:    Update
+    Time:         2020-11-05T17:20:54Z
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:status:
+        f:experiments:
+    Manager:      chaos-runner
+    Operation:    Update
+    Time:         2020-11-05T17:22:45Z
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers:
+          .:
+          v:"chaosengine.litmuschaos.io/finalizer":
+      f:spec:
+        f:components:
+          .:
+          f:runner:
+            .:
+            f:image:
+        f:engineState:
+        f:experiments:
+      f:status:
+        .:
+        f:engineStatus:
+    Manager:         chaos-operator
+    Operation:       Update
+    Time:            2020-11-05T17:22:51Z
+  Resource Version:  39154
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/nginx/chaosengines/nginx-chaos
+  UID:               6cff3341-9e51-471b-93a4-651056502635
+Spec:
+  Annotation Check:  true
+  Appinfo:
+    Appkind:              deployment
+    Applabel:             app=nginx
+    Appns:                nginx
+  Chaos Service Account:  container-kill-sa
+  Components:
+    Runner:
+      Image:     litmuschaos/chaos-runner:1.9.0
+  Engine State:  stop
+  Experiments:
+    Name:  container-kill
+    Spec:
+      Components:
+        Env:
+          Name:   TOTAL_CHAOS_DURATION
+          Value:  30
+          Name:   CHAOS_INTERVAL
+          Value:  10
+          Name:   FORCE
+          Value:  false
+        Resources:
+        Status Check Timeouts:
+      Rank:             0
+  Job Clean Up Policy:  delete
+Status:
+  Engine Status:  completed
+  Experiments:
+    Experiment Pod:    container-kill-d7kb38-gspkk
+    Last Update Time:  2020-11-05T17:22:45Z
+    Name:              container-kill
+    Runner:            nginx-chaos-runner
+    Status:            Completed
+    Verdict:           Pass
+Events:
+  Type    Reason                     Age    From                         Message
+  ----    ------                     ----   ----                         -------
+  Normal  ChaosEngineInitialized     2m38s  chaos-operator               nginx-chaos-runner created successfully
+  Normal  ExperimentDependencyCheck  2m32s  nginx-chaos-runner           Experiment resources validated for Chaos Experiment: 'container-kill'
+  Normal  ExperimentJobCreate        2m27s  nginx-chaos-runner           Experiment Job 'container-kill-d7kb38' created for Chaos Experiment 'container-kill'
+  Normal  PreChaosCheck              2m     container-kill-d7kb38-gspkk  AUT: Running
+  Normal  ChaosInject                2m     container-kill-d7kb38-gspkk  Injecting container-kill chaos on target pod
+  Normal  PostChaosCheck             55s    container-kill-d7kb38-gspkk  AUT: Running
+  Normal  Summary                    55s    container-kill-d7kb38-gspkk  container-kill experiment has been Passed
+  Normal  ExperimentJobCleanUp       47s    nginx-chaos-runner           Experiment Job 'container-kill-d7kb38' is deleted
+  Normal  ChaosEngineCompleted       41s    chaos-operator               Chaos Engine completed, will delete or retain the resources according to jobCleanUpPolicy
