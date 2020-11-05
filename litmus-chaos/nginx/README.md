@@ -1,7 +1,7 @@
 #### TODOS
 - Install Litmus
 - Create nginx server with docker image 
-- Run pod-delete experiment on pod 
+- Run container-kill experiment on pod 
 
 #### Requirements
 - Kubernetes/kubectl  
