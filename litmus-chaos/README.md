@@ -1,6 +1,6 @@
 ### Litmus Chaos Platforms experimenting with (includes k8s setup for each) 
 
-- [x] [Simple Nginx server](/litmus-chaos/kind/)
+- [x] [Simple Nginx server](/litmus-chaos/nginx/)
 - [ ] [Kind](/litmus-chaos/kind/)
 - [ ] Openshift
 - [ ] Rancher 
