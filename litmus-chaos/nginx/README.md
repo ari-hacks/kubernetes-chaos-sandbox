@@ -76,4 +76,5 @@
   kubectl delete -f https://litmuschaos.github.io/litmus/litmus-operator-v1.9.0.yaml
   kubectl delete chaosengine --all -n nginx
   kubectl delete chaosengine --all -n litmus
+  kubectl delete namespaces nginx
 ```

@@ -1,0 +1,55 @@
+Name:         kind-chaos-pod-delete
+Namespace:    sock-shop
+Labels:       app.kubernetes.io/part-of=litmus
+              chaosUID=49bdcc65-06f8-4707-a5e0-d8e83439a99a
+              controller-uid=07ac99ab-47fa-4a7c-a393-c0d32d87cf6d
+              job-name=pod-delete-lv3c6u
+              name=kind-chaos-pod-delete
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2020-11-05T19:59:53Z
+  Generation:          2
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/part-of:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentstatus:
+          .:
+          f:failStep:
+          f:phase:
+          f:verdict:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2020-11-05T20:00:35Z
+  Resource Version:  10624
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/sock-shop/chaosresults/kind-chaos-pod-delete
+  UID:               4272fa32-0377-4a3b-8f1d-94ee30f1cae2
+Spec:
+  Engine:      kind-chaos
+  Experiment:  pod-delete
+Status:
+  Experimentstatus:
+    Fail Step:  N/A
+    Phase:      Completed
+    Verdict:    Pass
+Events:
+  Type    Reason   Age    From                     Message
+  ----    ------   ----   ----                     -------
+  Normal  Awaited  2m15s  pod-delete-lv3c6u-plv8p  experiment: pod-delete, Result: Awaited
+  Normal  Pass     93s    pod-delete-lv3c6u-plv8p  experiment: pod-delete, Result: Pass

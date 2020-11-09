@@ -1,0 +1,108 @@
+Name:         kind-chaos
+Namespace:    sock-shop
+Labels:       <none>
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosEngine
+Metadata:
+  Creation Timestamp:  2020-11-05T19:40:45Z
+  Finalizers:
+    chaosengine.litmuschaos.io/finalizer
+  Generation:  30
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:spec:
+        .:
+        f:annotationCheck:
+        f:appinfo:
+          .:
+          f:appkind:
+          f:applabel:
+          f:appns:
+        f:chaosServiceAccount:
+        f:jobCleanUpPolicy:
+        f:monitoring:
+    Manager:      kubectl-create
+    Operation:    Update
+    Time:         2020-11-05T19:40:45Z
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:status:
+        f:experiments:
+    Manager:      chaos-runner
+    Operation:    Update
+    Time:         2020-11-05T19:43:23Z
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers:
+          .:
+          v:"chaosengine.litmuschaos.io/finalizer":
+      f:spec:
+        f:components:
+          .:
+          f:runner:
+            .:
+            f:image:
+        f:engineState:
+        f:experiments:
+      f:status:
+        .:
+        f:engineStatus:
+    Manager:         chaos-operator
+    Operation:       Update
+    Time:            2020-11-05T19:43:29Z
+  Resource Version:  7520
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/sock-shop/chaosengines/kind-chaos
+  UID:               a5d966ba-7765-44f0-871e-5b6149b15aee
+Spec:
+  Annotation Check:  false
+  Appinfo:
+    Appkind:              deployment
+    Applabel:             name=carts-db
+    Appns:                sock-shop
+  Chaos Service Account:  sock-shop-chaos-engine
+  Components:
+    Runner:
+      Image:     litmuschaos/chaos-runner:1.9.0
+  Engine State:  stop
+  Experiments:
+    Name:  node-memory-hog
+    Spec:
+      Components:
+        Env:
+          Name:   TOTAL_CHAOS_DURATION
+          Value:  120
+          Name:   MEMORY_PERCENTAGE
+          Value:  90
+        Resources:
+        Status Check Timeouts:
+      Rank:             0
+  Job Clean Up Policy:  delete
+  Monitoring:           true
+Status:
+  Engine Status:  completed
+  Experiments:
+    Experiment Pod:    node-memory-hog-6kd4tp-49xwr
+    Last Update Time:  2020-11-05T19:43:23Z
+    Name:              node-memory-hog
+    Runner:            kind-chaos-runner
+    Status:            Completed
+    Verdict:           Pass
+Events:
+  Type     Reason                         Age    From                          Message
+  ----     ------                         ----   ----                          -------
+  Normal   ChaosEngineInitialized         4m31s  chaos-operator                kind-chaos-runner created successfully
+  Warning  ChaosResourcesOperationFailed  4m31s  chaos-operator                Unable to get chaos resources
+  Normal   ExperimentDependencyCheck      4m26s  kind-chaos-runner             Experiment resources validated for Chaos Experiment: 'node-memory-hog'
+  Normal   ExperimentJobCreate            4m21s  kind-chaos-runner             Experiment Job 'node-memory-hog-6kd4tp' created for Chaos Experiment 'node-memory-hog'
+  Normal   PreChaosCheck                  4m12s  node-memory-hog-6kd4tp-49xwr  AUT: Running
+  Normal   ChaosInject                    4m12s  node-memory-hog-6kd4tp-49xwr  Injecting node-memory-hog chaos on kind-worker2 node
+  Normal   Summary                        2m     node-memory-hog-6kd4tp-49xwr  node-memory-hog experiment has been Passed
+  Normal   PostChaosCheck                 2m     node-memory-hog-6kd4tp-49xwr  AUT: Running
+  Normal   ExperimentJobCleanUp           113s   kind-chaos-runner             Experiment Job 'node-memory-hog-6kd4tp' is deleted
+  Normal   ChaosEngineCompleted           106s   chaos-operator                Chaos Engine completed, will delete or retain the resources according to jobCleanUpPolicy

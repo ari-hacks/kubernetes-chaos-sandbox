@@ -1,0 +1,114 @@
+Name:         kind-chaos
+Namespace:    sock-shop
+Labels:       <none>
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosEngine
+Metadata:
+  Creation Timestamp:  2020-11-05T19:47:12Z
+  Finalizers:
+    chaosengine.litmuschaos.io/finalizer
+  Generation:  20
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:spec:
+        .:
+        f:annotationCheck:
+        f:appinfo:
+          .:
+          f:appkind:
+          f:applabel:
+          f:appns:
+        f:chaosServiceAccount:
+        f:jobCleanUpPolicy:
+        f:monitoring:
+    Manager:      kubectl-create
+    Operation:    Update
+    Time:         2020-11-05T19:47:12Z
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:status:
+        f:experiments:
+    Manager:      chaos-runner
+    Operation:    Update
+    Time:         2020-11-05T19:48:44Z
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers:
+          .:
+          v:"chaosengine.litmuschaos.io/finalizer":
+      f:spec:
+        f:components:
+          .:
+          f:runner:
+            .:
+            f:image:
+        f:engineState:
+        f:experiments:
+      f:status:
+        .:
+        f:engineStatus:
+    Manager:         chaos-operator
+    Operation:       Update
+    Time:            2020-11-05T19:48:50Z
+  Resource Version:  8488
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/sock-shop/chaosengines/kind-chaos
+  UID:               276fd17d-aed3-4a01-90eb-87048562548d
+Spec:
+  Annotation Check:  false
+  Appinfo:
+    Appkind:              deployment
+    Applabel:             name=carts-db
+    Appns:                sock-shop
+  Chaos Service Account:  sock-shop-chaos-engine
+  Components:
+    Runner:
+      Image:     litmuschaos/chaos-runner:1.9.0
+  Engine State:  stop
+  Experiments:
+    Name:  pod-cpu-hog
+    Spec:
+      Components:
+        Env:
+          Name:   TARGET_CONTAINER
+          Value:  carts-db
+          Name:   CPU_CORES
+          Value:  1
+          Name:   TOTAL_CHAOS_DURATION
+          Value:  60
+          Name:   CHAOS_INJECT_COMMAND
+          Value:  md5sum /dev/zero
+          Name:   CHAOS_KILL_COMMAND
+          Value:  kill -9 $(ps afx | grep "[md5sum] /dev/zero" | awk '{print$1}' | tr '
+' ' ')
+        Resources:
+        Status Check Timeouts:
+      Rank:             0
+  Job Clean Up Policy:  delete
+  Monitoring:           true
+Status:
+  Engine Status:  completed
+  Experiments:
+    Experiment Pod:    pod-cpu-hog-yqtgw1-vpdpw
+    Last Update Time:  2020-11-05T19:48:44Z
+    Name:              pod-cpu-hog
+    Runner:            kind-chaos-runner
+    Status:            Completed
+    Verdict:           Pass
+Events:
+  Type    Reason                     Age    From                      Message
+  ----    ------                     ----   ----                      -------
+  Normal  ChaosEngineInitialized     10m    chaos-operator            kind-chaos-runner created successfully
+  Normal  ExperimentDependencyCheck  10m    kind-chaos-runner         Experiment resources validated for Chaos Experiment: 'pod-cpu-hog'
+  Normal  ExperimentJobCreate        10m    kind-chaos-runner         Experiment Job 'pod-cpu-hog-yqtgw1' created for Chaos Experiment 'pod-cpu-hog'
+  Normal  PreChaosCheck              10m    pod-cpu-hog-yqtgw1-vpdpw  AUT: Running
+  Normal  ChaosInject                10m    pod-cpu-hog-yqtgw1-vpdpw  Injecting pod-cpu-hog chaos on carts-db-69669d85b8-mc86x pod
+  Normal  PostChaosCheck             9m31s  pod-cpu-hog-yqtgw1-vpdpw  AUT: Running
+  Normal  Summary                    9m31s  pod-cpu-hog-yqtgw1-vpdpw  pod-cpu-hog experiment has been Passed
+  Normal  ExperimentJobCleanUp       9m22s  kind-chaos-runner         Experiment Job 'pod-cpu-hog-yqtgw1' is deleted
+  Normal  ChaosEngineCompleted       9m16s  chaos-operator            Chaos Engine completed, will delete or retain the resources according to jobCleanUpPolicy

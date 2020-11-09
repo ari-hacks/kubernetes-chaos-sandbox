@@ -1,0 +1,55 @@
+Name:         kind-chaos-node-cpu-hog
+Namespace:    sock-shop
+Labels:       app.kubernetes.io/part-of=litmus
+              chaosUID=a0ef18e1-8e79-4181-a4c5-19c4ada7d3fa
+              controller-uid=c8d92ef8-e823-48ad-8df6-16433f7bf746
+              job-name=node-cpu-hog-qlkqvf
+              name=kind-chaos-node-cpu-hog
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2020-11-05T19:35:37Z
+  Generation:          2
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/part-of:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentstatus:
+          .:
+          f:failStep:
+          f:phase:
+          f:verdict:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2020-11-05T19:36:53Z
+  Resource Version:  6310
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/sock-shop/chaosresults/kind-chaos-node-cpu-hog
+  UID:               504f3f16-9003-47a0-ab7c-8266fb1a06e6
+Spec:
+  Engine:      kind-chaos
+  Experiment:  node-cpu-hog
+Status:
+  Experimentstatus:
+    Fail Step:  N/A
+    Phase:      Completed
+    Verdict:    Pass
+Events:
+  Type    Reason   Age   From                       Message
+  ----    ------   ----  ----                       -------
+  Normal  Awaited  3m4s  node-cpu-hog-qlkqvf-ntsqn  experiment: node-cpu-hog, Result: Awaited
+  Normal  Pass     108s  node-cpu-hog-qlkqvf-ntsqn  experiment: node-cpu-hog, Result: Pass

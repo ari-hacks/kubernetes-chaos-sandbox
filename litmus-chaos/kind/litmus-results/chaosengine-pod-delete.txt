@@ -1,0 +1,111 @@
+Name:         kind-chaos
+Namespace:    sock-shop
+Labels:       <none>
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosEngine
+Metadata:
+  Creation Timestamp:  2020-11-05T19:59:40Z
+  Finalizers:
+    chaosengine.litmuschaos.io/finalizer
+  Generation:  15
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:spec:
+        .:
+        f:annotationCheck:
+        f:appinfo:
+          .:
+          f:appkind:
+          f:applabel:
+          f:appns:
+        f:chaosServiceAccount:
+        f:jobCleanUpPolicy:
+        f:monitoring:
+    Manager:      kubectl-create
+    Operation:    Update
+    Time:         2020-11-05T19:59:40Z
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:status:
+        f:experiments:
+    Manager:      chaos-runner
+    Operation:    Update
+    Time:         2020-11-05T20:00:45Z
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers:
+          .:
+          v:"chaosengine.litmuschaos.io/finalizer":
+      f:spec:
+        f:components:
+          .:
+          f:runner:
+            .:
+            f:image:
+        f:engineState:
+        f:experiments:
+      f:status:
+        .:
+        f:engineStatus:
+    Manager:         chaos-operator
+    Operation:       Update
+    Time:            2020-11-05T20:00:51Z
+  Resource Version:  10684
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/sock-shop/chaosengines/kind-chaos
+  UID:               49bdcc65-06f8-4707-a5e0-d8e83439a99a
+Spec:
+  Annotation Check:  true
+  Appinfo:
+    Appkind:              deployment
+    Applabel:             name=carts-db
+    Appns:                sock-shop
+  Chaos Service Account:  sock-shop-chaos-engine
+  Components:
+    Runner:
+      Image:     litmuschaos/chaos-runner:1.9.0
+  Engine State:  stop
+  Experiments:
+    Name:  pod-delete
+    Spec:
+      Components:
+        Env:
+          Name:   TOTAL_CHAOS_DURATION
+          Value:  30
+          Name:   CHAOS_INTERVAL
+          Value:  5
+          Name:   FORCE
+          Value:  false
+          Name:   DEFAULT_GATHERING
+          Value:  explicit
+        Resources:
+        Status Check Timeouts:
+      Rank:             0
+  Job Clean Up Policy:  delete
+  Monitoring:           true
+Status:
+  Engine Status:  completed
+  Experiments:
+    Experiment Pod:    pod-delete-lv3c6u-plv8p
+    Last Update Time:  2020-11-05T20:00:45Z
+    Name:              pod-delete
+    Runner:            kind-chaos-runner
+    Status:            Completed
+    Verdict:           Pass
+Events:
+  Type    Reason                     Age                 From                     Message
+  ----    ------                     ----                ----                     -------
+  Normal  ChaosEngineInitialized     2m4s                chaos-operator           kind-chaos-runner created successfully
+  Normal  ExperimentDependencyCheck  2m                  kind-chaos-runner        Experiment resources validated for Chaos Experiment: 'pod-delete'
+  Normal  ExperimentJobCreate        115s                kind-chaos-runner        Experiment Job 'pod-delete-lv3c6u' created for Chaos Experiment 'pod-delete'
+  Normal  PreChaosCheck              107s                pod-delete-lv3c6u-plv8p  AUT: Running
+  Normal  ChaosInject                82s (x3 over 107s)  pod-delete-lv3c6u-plv8p  Injecting pod-delete chaos on application pod
+  Normal  PostChaosCheck             69s                 pod-delete-lv3c6u-plv8p  AUT: Running
+  Normal  Summary                    69s                 pod-delete-lv3c6u-plv8p  pod-delete experiment has been Passed
+  Normal  ExperimentJobCleanUp       58s                 kind-chaos-runner        Experiment Job 'pod-delete-lv3c6u' is deleted
+  Normal  ChaosEngineCompleted       53s                 chaos-operator           Chaos Engine completed, will delete or retain the resources according to jobCleanUpPolicy

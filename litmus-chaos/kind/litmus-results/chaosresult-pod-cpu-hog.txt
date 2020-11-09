@@ -1,0 +1,55 @@
+Name:         kind-chaos-pod-cpu-hog
+Namespace:    sock-shop
+Labels:       app.kubernetes.io/part-of=litmus
+              chaosUID=276fd17d-aed3-4a01-90eb-87048562548d
+              controller-uid=21cc802f-bd4b-49ad-a11d-a2d7291a6061
+              job-name=pod-cpu-hog-yqtgw1
+              name=kind-chaos-pod-cpu-hog
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2020-11-05T19:47:25Z
+  Generation:          2
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/part-of:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentstatus:
+          .:
+          f:failStep:
+          f:phase:
+          f:verdict:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2020-11-05T19:48:35Z
+  Resource Version:  8431
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/sock-shop/chaosresults/kind-chaos-pod-cpu-hog
+  UID:               10216227-663b-4c39-81b4-2dd36aa7ffa2
+Spec:
+  Engine:      kind-chaos
+  Experiment:  pod-cpu-hog
+Status:
+  Experimentstatus:
+    Fail Step:  N/A
+    Phase:      Completed
+    Verdict:    Pass
+Events:
+  Type    Reason   Age   From                      Message
+  ----    ------   ----  ----                      -------
+  Normal  Awaited  11m   pod-cpu-hog-yqtgw1-vpdpw  experiment: pod-cpu-hog, Result: Awaited
+  Normal  Pass     10m   pod-cpu-hog-yqtgw1-vpdpw  experiment: pod-cpu-hog, Result: Pass
