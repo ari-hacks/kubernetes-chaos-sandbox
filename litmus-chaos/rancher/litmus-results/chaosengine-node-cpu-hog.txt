@@ -1,0 +1,107 @@
+Name:         rancher-chaos
+Namespace:    sock-shop
+Labels:       <none>
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosEngine
+Metadata:
+  Creation Timestamp:  2020-11-17T23:00:03Z
+  Finalizers:
+    chaosengine.litmuschaos.io/finalizer
+  Generation:  22
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:spec:
+        .:
+        f:annotationCheck:
+        f:appinfo:
+          .:
+          f:appkind:
+          f:applabel:
+          f:appns:
+        f:chaosServiceAccount:
+        f:jobCleanUpPolicy:
+        f:monitoring:
+    Manager:      kubectl-create
+    Operation:    Update
+    Time:         2020-11-17T23:00:03Z
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:status:
+        f:experiments:
+    Manager:      chaos-runner
+    Operation:    Update
+    Time:         2020-11-17T23:01:45Z
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers:
+          .:
+          v:"chaosengine.litmuschaos.io/finalizer":
+      f:spec:
+        f:components:
+          .:
+          f:runner:
+            .:
+            f:image:
+        f:engineState:
+        f:experiments:
+      f:status:
+        .:
+        f:engineStatus:
+    Manager:         chaos-operator
+    Operation:       Update
+    Time:            2020-11-17T23:01:50Z
+  Resource Version:  11192
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/sock-shop/chaosengines/rancher-chaos
+  UID:               10ef7305-117e-4873-93ee-ef41ed4b900d
+Spec:
+  Annotation Check:  false
+  Appinfo:
+    Appkind:              deployment
+    Applabel:             name=carts-db
+    Appns:                sock-shop
+  Chaos Service Account:  sock-shop-chaos-engine
+  Components:
+    Runner:
+      Image:     litmuschaos/chaos-runner:1.9.0
+  Engine State:  stop
+  Experiments:
+    Name:  node-cpu-hog
+    Spec:
+      Components:
+        Env:
+          Name:   TOTAL_CHAOS_DURATION
+          Value:  60
+          Name:   NODE_CPU_CORE
+          Value:  2
+        Resources:
+        Status Check Timeouts:
+      Rank:             0
+  Job Clean Up Policy:  delete
+  Monitoring:           true
+Status:
+  Engine Status:  completed
+  Experiments:
+    Experiment Pod:    node-cpu-hog-bespru-dnbqk
+    Last Update Time:  2020-11-17T23:01:45Z
+    Name:              node-cpu-hog
+    Runner:            rancher-chaos-runner
+    Status:            Completed
+    Verdict:           Pass
+Events:
+  Type    Reason                     Age   From                       Message
+  ----    ------                     ----  ----                       -------
+  Normal  ChaosEngineInitialized     116s  chaos-operator             rancher-chaos-runner created successfully
+  Normal  ExperimentDependencyCheck  110s  rancher-chaos-runner       Experiment resources validated for Chaos Experiment: 'node-cpu-hog'
+  Normal  ExperimentJobCreate        105s  rancher-chaos-runner       Experiment Job 'node-cpu-hog-bespru' created for Chaos Experiment 'node-cpu-hog'
+  Normal  PreChaosCheck              96s   node-cpu-hog-bespru-dnbqk  AUT: Running
+  Normal  ChaosInject                96s   node-cpu-hog-bespru-dnbqk  Injecting node-cpu-hog chaos on server-01 node
+  Normal  PostChaosCheck             24s   node-cpu-hog-bespru-dnbqk  AUT: Running
+  Normal  Summary                    24s   node-cpu-hog-bespru-dnbqk  node-cpu-hog experiment has been Passed
+  Normal  ExperimentJobCleanUp       14s   rancher-chaos-runner       Experiment Job 'node-cpu-hog-bespru' is deleted
+  Normal  ChaosEngineCompleted       9s    chaos-operator             Chaos Engine completed, will delete or retain the resources according to jobCleanUpPolicy

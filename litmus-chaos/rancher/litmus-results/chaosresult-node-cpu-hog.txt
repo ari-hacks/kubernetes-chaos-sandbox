@@ -1,16 +1,16 @@
 Name:         rancher-chaos-node-cpu-hog
 Namespace:    sock-shop
 Labels:       app.kubernetes.io/part-of=litmus
-              chaosUID=6680293b-afe6-41d8-b739-c25885fbb655
-              controller-uid=52612604-2647-4835-aae5-432de7dd4fe5
-              job-name=node-cpu-hog-w1ztan
+              chaosUID=10ef7305-117e-4873-93ee-ef41ed4b900d
+              controller-uid=463b6db7-8603-4d5c-9e31-a50bdb962c89
+              job-name=node-cpu-hog-bespru
               name=rancher-chaos-node-cpu-hog
 Annotations:  <none>
 API Version:  litmuschaos.io/v1alpha1
 Kind:         ChaosResult
 Metadata:
-  Creation Timestamp:  2020-11-17T08:40:13Z
-  Generation:          6
+  Creation Timestamp:  2020-11-17T23:00:19Z
+  Generation:          2
   Managed Fields:
     API Version:  litmuschaos.io/v1alpha1
     Fields Type:  FieldsV1
@@ -36,10 +36,10 @@ Metadata:
           f:verdict:
     Manager:         experiments
     Operation:       Update
-    Time:            2020-11-17T08:54:24Z
-  Resource Version:  17711
+    Time:            2020-11-17T23:01:35Z
+  Resource Version:  11146
   Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/sock-shop/chaosresults/rancher-chaos-node-cpu-hog
-  UID:               79068900-8b7d-4ec8-ae51-c4e5f1d3f46e
+  UID:               e028320a-db09-47bc-9efb-dc4b2bb7f0d7
 Spec:
   Engine:      rancher-chaos
   Experiment:  node-cpu-hog
@@ -49,7 +49,7 @@ Status:
     Phase:      Completed
     Verdict:    Pass
 Events:
-  Type    Reason   Age    From                       Message
-  ----    ------   ----   ----                       -------
-  Normal  Awaited  2m12s  node-cpu-hog-w1ztan-gb7c5  experiment: node-cpu-hog, Result: Awaited
-  Normal  Pass     53s    node-cpu-hog-w1ztan-gb7c5  experiment: node-cpu-hog, Result: Pass
+  Type    Reason   Age   From                       Message
+  ----    ------   ----  ----                       -------
+  Normal  Awaited  107s  node-cpu-hog-bespru-dnbqk  experiment: node-cpu-hog, Result: Awaited
+  Normal  Pass     31s   node-cpu-hog-bespru-dnbqk  experiment: node-cpu-hog, Result: Pass
