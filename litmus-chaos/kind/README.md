@@ -1,7 +1,7 @@
 #### TODOS
  - Create a kind cluster
  - Deploy the demo mircoservice [sock shop](https://github.com/microservices-demo/microservices-demo)
- - Run experiments on pods 
+ - Run experiments
 
 #### Requirements
 - Kubernetes/kubectl  

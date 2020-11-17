@@ -2,7 +2,7 @@
  - Create a Rancher Server with a single node cluster
  - Configure rancher cluster
  - Deploy the demo mircoservice [sock shop](https://github.com/microservices-demo/microservices-demo)
- - Run experiments on pods 
+ - Run experiments
 
 #### Requirements
 - Kubernetes/kubectl  
@@ -10,8 +10,11 @@
 - plugins for Vagrant
 
 #### Create a Rancher Server with a single node cluster
-Note: I am using ranchers getting stared  with Vagrant configuration and guide here: https://github.com/rancher/quickstart/tree/master/vagrant
+Note: I am using ranchers getting stared  with Vagrant configuration and guide here: 
+```BASH
+https://github.com/rancher/quickstart/tree/master/vagrant
 https://rancher.com/docs/rancher/v2.x/en/quick-start-guide/deployment/quickstart-vagrant/
+```
 
 1. Install plugins to create VirtualBox VMs
 ```BASH
