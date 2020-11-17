@@ -1,0 +1,111 @@
+Name:         rancher-chaos
+Namespace:    sock-shop
+Labels:       <none>
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosEngine
+Metadata:
+  Creation Timestamp:  2020-11-17T09:34:43Z
+  Finalizers:
+    chaosengine.litmuschaos.io/finalizer
+  Generation:  12
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:spec:
+        .:
+        f:annotationCheck:
+        f:appinfo:
+          .:
+          f:appkind:
+          f:applabel:
+          f:appns:
+        f:chaosServiceAccount:
+        f:jobCleanUpPolicy:
+        f:monitoring:
+    Manager:      kubectl-create
+    Operation:    Update
+    Time:         2020-11-17T09:34:43Z
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:status:
+        f:experiments:
+    Manager:      chaos-runner
+    Operation:    Update
+    Time:         2020-11-17T09:35:46Z
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers:
+          .:
+          v:"chaosengine.litmuschaos.io/finalizer":
+      f:spec:
+        f:components:
+          .:
+          f:runner:
+            .:
+            f:image:
+        f:engineState:
+        f:experiments:
+      f:status:
+        .:
+        f:engineStatus:
+    Manager:         chaos-operator
+    Operation:       Update
+    Time:            2020-11-17T09:35:52Z
+  Resource Version:  25174
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/sock-shop/chaosengines/rancher-chaos
+  UID:               9fe2fa4e-066f-4740-81d2-f494c0c4d94a
+Spec:
+  Annotation Check:  true
+  Appinfo:
+    Appkind:              deployment
+    Applabel:             name=carts-db
+    Appns:                sock-shop
+  Chaos Service Account:  sock-shop-chaos-engine
+  Components:
+    Runner:
+      Image:     litmuschaos/chaos-runner:1.9.0
+  Engine State:  stop
+  Experiments:
+    Name:  pod-delete
+    Spec:
+      Components:
+        Env:
+          Name:   TOTAL_CHAOS_DURATION
+          Value:  30
+          Name:   CHAOS_INTERVAL
+          Value:  5
+          Name:   FORCE
+          Value:  false
+          Name:   DEFAULT_GATHERING
+          Value:  explicit
+        Resources:
+        Status Check Timeouts:
+      Rank:             0
+  Job Clean Up Policy:  delete
+  Monitoring:           true
+Status:
+  Engine Status:  completed
+  Experiments:
+    Experiment Pod:    pod-delete-gxyl4o-swqx6
+    Last Update Time:  2020-11-17T09:35:46Z
+    Name:              pod-delete
+    Runner:            rancher-chaos-runner
+    Status:            Completed
+    Verdict:           Pass
+Events:
+  Type    Reason                     Age                From                     Message
+  ----    ------                     ----               ----                     -------
+  Normal  ChaosEngineInitialized     81s                chaos-operator           rancher-chaos-runner created successfully
+  Normal  ExperimentDependencyCheck  76s                rancher-chaos-runner     Experiment resources validated for Chaos Experiment: 'pod-delete'
+  Normal  ExperimentJobCreate        70s                rancher-chaos-runner     Experiment Job 'pod-delete-gxyl4o' created for Chaos Experiment 'pod-delete'
+  Normal  PreChaosCheck              61s                pod-delete-gxyl4o-swqx6  AUT: Running
+  Normal  ChaosInject                41s (x2 over 61s)  pod-delete-gxyl4o-swqx6  Injecting pod-delete chaos on application pod
+  Normal  PostChaosCheck             26s                pod-delete-gxyl4o-swqx6  AUT: Running
+  Normal  Summary                    26s                pod-delete-gxyl4o-swqx6  pod-delete experiment has been Passed
+  Normal  ExperimentJobCleanUp       18s                rancher-chaos-runner     Experiment Job 'pod-delete-gxyl4o' is deleted
+  Normal  ChaosEngineCompleted       12s                chaos-operator           Chaos Engine completed, will delete or retain the resources according to jobCleanUpPolicy

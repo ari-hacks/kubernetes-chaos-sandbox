@@ -1,0 +1,55 @@
+Name:         rancher-chaos-node-memory-hog
+Namespace:    sock-shop
+Labels:       app.kubernetes.io/part-of=litmus
+              chaosUID=d8da7ae5-af9f-42ef-90e4-664ad0ec5299
+              controller-uid=50bf1c49-1b97-406a-b2c5-98c96ed74b98
+              job-name=node-memory-hog-wn0k4g
+              name=rancher-chaos-node-memory-hog
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2020-11-17T08:57:16Z
+  Generation:          3
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/part-of:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentstatus:
+          .:
+          f:failStep:
+          f:phase:
+          f:verdict:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2020-11-17T09:03:39Z
+  Resource Version:  19358
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/sock-shop/chaosresults/rancher-chaos-node-memory-hog
+  UID:               6273aecc-39bd-4540-bb81-848ede7f8808
+Spec:
+  Engine:      rancher-chaos
+  Experiment:  node-memory-hog
+Status:
+  Experimentstatus:
+    Fail Step:  N/A
+    Phase:      Completed
+    Verdict:    Pass
+Events:
+  Type    Reason   Age    From                          Message
+  ----    ------   ----   ----                          -------
+  Normal  Awaited  6m57s  node-memory-hog-wn0k4g-hkh8h  experiment: node-memory-hog, Result: Awaited
+  Normal  Pass     4m24s  node-memory-hog-wn0k4g-hkh8h  experiment: node-memory-hog, Result: Pass

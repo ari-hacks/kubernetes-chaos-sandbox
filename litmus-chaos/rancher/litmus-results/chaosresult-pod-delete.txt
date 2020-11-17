@@ -1,0 +1,55 @@
+Name:         rancher-chaos-pod-delete
+Namespace:    sock-shop
+Labels:       app.kubernetes.io/part-of=litmus
+              chaosUID=9fe2fa4e-066f-4740-81d2-f494c0c4d94a
+              controller-uid=4ba8ce29-1f50-4dff-bfee-f68aa6d9341e
+              job-name=pod-delete-gxyl4o
+              name=rancher-chaos-pod-delete
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2020-11-17T09:25:02Z
+  Generation:          5
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/part-of:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentstatus:
+          .:
+          f:failStep:
+          f:phase:
+          f:verdict:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2020-11-17T09:35:39Z
+  Resource Version:  25129
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/sock-shop/chaosresults/rancher-chaos-pod-delete
+  UID:               eddddd7a-5e63-4b16-965b-da341b3678f2
+Spec:
+  Engine:      rancher-chaos
+  Experiment:  pod-delete
+Status:
+  Experimentstatus:
+    Fail Step:  N/A
+    Phase:      Completed
+    Verdict:    Pass
+Events:
+  Type    Reason   Age   From                     Message
+  ----    ------   ----  ----                     -------
+  Normal  Awaited  73s   pod-delete-gxyl4o-swqx6  experiment: pod-delete, Result: Awaited
+  Normal  Pass     34s   pod-delete-gxyl4o-swqx6  experiment: pod-delete, Result: Pass

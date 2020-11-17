@@ -1,0 +1,55 @@
+Name:         rancher-chaos-node-cpu-hog
+Namespace:    sock-shop
+Labels:       app.kubernetes.io/part-of=litmus
+              chaosUID=6680293b-afe6-41d8-b739-c25885fbb655
+              controller-uid=52612604-2647-4835-aae5-432de7dd4fe5
+              job-name=node-cpu-hog-w1ztan
+              name=rancher-chaos-node-cpu-hog
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2020-11-17T08:40:13Z
+  Generation:          6
+  Managed Fields:
+    API Version:  litmuschaos.io/v1alpha1
+    Fields Type:  FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .:
+          f:app.kubernetes.io/part-of:
+          f:chaosUID:
+          f:controller-uid:
+          f:job-name:
+          f:name:
+      f:spec:
+        .:
+        f:engine:
+        f:experiment:
+      f:status:
+        .:
+        f:experimentstatus:
+          .:
+          f:failStep:
+          f:phase:
+          f:verdict:
+    Manager:         experiments
+    Operation:       Update
+    Time:            2020-11-17T08:54:24Z
+  Resource Version:  17711
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/sock-shop/chaosresults/rancher-chaos-node-cpu-hog
+  UID:               79068900-8b7d-4ec8-ae51-c4e5f1d3f46e
+Spec:
+  Engine:      rancher-chaos
+  Experiment:  node-cpu-hog
+Status:
+  Experimentstatus:
+    Fail Step:  N/A
+    Phase:      Completed
+    Verdict:    Pass
+Events:
+  Type    Reason   Age    From                       Message
+  ----    ------   ----   ----                       -------
+  Normal  Awaited  2m12s  node-cpu-hog-w1ztan-gb7c5  experiment: node-cpu-hog, Result: Awaited
+  Normal  Pass     53s    node-cpu-hog-w1ztan-gb7c5  experiment: node-cpu-hog, Result: Pass
