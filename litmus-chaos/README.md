@@ -1,4 +1,4 @@
-### Litmus Chaos Platforms experimenting with (includes k8s setup for each) 
+### Platforms experimenting with (includes k8s setup for each) 
 
 - [x] [Simple Nginx server](/litmus-chaos/nginx/)
 - [x] [Kind](/litmus-chaos/kind/)
