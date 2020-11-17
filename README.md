@@ -19,8 +19,8 @@ A sandbox repo of chaos experiment tutorials with [Gremlin](https://www.gremlin.
     </p>
   </details>
 
-#### Tutorials
+#### Quick Links to Tutorials ☝️
 
-- [ ] [Litmus](/litmuschaos)
+- [x] [Litmus](/litmus-chaos/)
 - [ ] [Gremlin](/gremlin)
 - [ ] [Chaos Mesh](/chaos-mesh)

@@ -3,7 +3,7 @@
 - [x] [Simple Nginx server](/litmus-chaos/nginx/)
 - [x] [Kind](/litmus-chaos/kind/)
 - [ ] Openshift
-- [x] Rancher 
+- [x] [Rancher](/litmus-chaos/rancher)
 - [ ] Kafka  
 
 #### Resources from Litmus
