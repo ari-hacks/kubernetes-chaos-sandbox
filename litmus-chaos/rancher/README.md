@@ -59,7 +59,7 @@ vim kube.yaml
 
 #### Deploy the demo mircoservice 
 
-1. Check you have access to rancher on your local machine &deploy demo microservice then verify they are running
+1. Check you have access to rancher on your local machine, deploy demo microservice, verify they are running
 ```BASH
 kubectl --kubeconfig kube.yaml get pods --namespace=cattle-system
  #deploy
