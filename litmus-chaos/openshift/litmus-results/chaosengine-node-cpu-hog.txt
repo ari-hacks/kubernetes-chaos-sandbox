@@ -1,0 +1,68 @@
+Name:         okd-chaos
+Namespace:    okd-cluster
+Labels:       <none>
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosEngine
+Metadata:
+  Creation Timestamp:  2020-11-18T20:21:07Z
+  Finalizers:
+    chaosengine.litmuschaos.io/finalizer
+  Generation:        1
+  Resource Version:  406590
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/okd-cluster/chaosengines/okd-chaos
+  UID:               96dad410-29db-11eb-ac54-b63c927e1587
+Spec:
+  Annotation Check:  true
+  Appinfo:
+    Appkind:              deployment
+    Applabel:             name=emailservice
+    Appns:                okd-cluster
+  Chaos Service Account:  store-chaos-engine
+  Components:
+    Runner:
+      Image:     litmuschaos/chaos-runner:1.9.0
+  Engine State:  stop
+  Experiments:
+    Name:  node-cpu-hog
+    Spec:
+      Components:
+        Env:
+          Name:   TARGET_CONTAINER
+          Value:  emailservice
+          Name:   DEFAULT_GATHERING
+          Value:  explicit
+          Name:   LIB_IMAGE
+          Value:  litmuschaos/go-runner:latest
+          Name:   LIB
+          Value:  litmus
+          Name:   CHAOS_INTERVAL
+          Value:  10
+          Name:   TOTAL_CHAOS_DURATION
+          Value:  50
+        Resources:
+        Status Check Timeouts:
+      Rank:             0
+  Job Clean Up Policy:  delete
+  Monitoring:           true
+Status:
+  Engine Status:  completed
+  Experiments:
+    Experiment Pod:    node-cpu-hog-jr0ys4-n2ktf
+    Last Update Time:  2020-11-18T20:22:55Z
+    Name:              node-cpu-hog
+    Runner:            okd-chaos-runner
+    Status:            Completed
+    Verdict:           Pass
+Events:
+  Type    Reason                     Age    From                       Message
+  ----    ------                     ----   ----                       -------
+  Normal  ChaosEngineInitialized     4m17s  chaos-operator             okd-chaos-runner created successfully
+  Normal  ExperimentDependencyCheck  4m13s  okd-chaos-runner           Experiment resources validated for Chaos Experiment: 'node-cpu-hog'
+  Normal  ExperimentJobCreate        4m8s   okd-chaos-runner           Experiment Job 'node-cpu-hog-jr0ys4' created for Chaos Experiment 'node-cpu-hog'
+  Normal  PreChaosCheck              4m1s   node-cpu-hog-jr0ys4-n2ktf  AUT: Running
+  Normal  ChaosInject                4m1s   node-cpu-hog-jr0ys4-n2ktf  Injecting node-cpu-hog chaos on localhost node
+  Normal  PostChaosCheck             2m38s  node-cpu-hog-jr0ys4-n2ktf  AUT: Running
+  Normal  Summary                    2m38s  node-cpu-hog-jr0ys4-n2ktf  node-cpu-hog experiment has been Passed
+  Normal  ExperimentJobCleanUp       2m29s  okd-chaos-runner           Experiment Job 'node-cpu-hog-jr0ys4' is deleted
+  Normal  ChaosEngineCompleted       2m23s  chaos-operator             Chaos Engine completed, will delete or retain the resources according to jobCleanUpPolicy

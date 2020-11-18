@@ -1,0 +1,29 @@
+Name:         okd-chaos-pod-memory-hog
+Namespace:    okd-cluster
+Labels:       app.kubernetes.io/part-of=litmus
+              chaosUID=6e2b3060-29dd-11eb-ac54-b63c927e1587
+              controller-uid=72e4fae2-29dd-11eb-ac54-b63c927e1587
+              job-name=pod-memory-hog-qb912m
+              name=okd-chaos-pod-memory-hog
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2020-11-18T20:34:28Z
+  Generation:          1
+  Resource Version:    419959
+  Self Link:           /apis/litmuschaos.io/v1alpha1/namespaces/okd-cluster/chaosresults/okd-chaos-pod-memory-hog
+  UID:                 74b6c1d8-29dd-11eb-ac54-b63c927e1587
+Spec:
+  Engine:      okd-chaos
+  Experiment:  pod-memory-hog
+Status:
+  Experimentstatus:
+    Fail Step:  N/A
+    Phase:      Completed
+    Verdict:    Pass
+Events:
+  Type    Reason   Age   From                         Message
+  ----    ------   ----  ----                         -------
+  Normal  Awaited  84s   pod-memory-hog-qb912m-hdgbj  experiment: pod-memory-hog, Result: Awaited
+  Normal  Pass     73s   pod-memory-hog-qb912m-hdgbj  experiment: pod-memory-hog, Result: Pass

@@ -1,0 +1,29 @@
+Name:         okd-chaos-pod-delete
+Namespace:    okd-cluster
+Labels:       app.kubernetes.io/part-of=litmus
+              chaosUID=862c0497-29d7-11eb-ac54-b63c927e1587
+              controller-uid=8bf52a47-29d7-11eb-ac54-b63c927e1587
+              job-name=pod-delete-2fvt9i
+              name=okd-chaos-pod-delete
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2020-11-18T19:50:02Z
+  Generation:          1
+  Resource Version:    360112
+  Self Link:           /apis/litmuschaos.io/v1alpha1/namespaces/okd-cluster/chaosresults/okd-chaos-pod-delete
+  UID:                 3fbe2b2b-29d7-11eb-ac54-b63c927e1587
+Spec:
+  Engine:      okd-chaos
+  Experiment:  pod-delete
+Status:
+  Experimentstatus:
+    Fail Step:  N/A
+    Phase:      Completed
+    Verdict:    Pass
+Events:
+  Type    Reason   Age    From                     Message
+  ----    ------   ----   ----                     -------
+  Normal  Awaited  8m22s  pod-delete-2fvt9i-ft4b7  experiment: pod-delete, Result: Awaited
+  Normal  Pass     7m18s  pod-delete-2fvt9i-ft4b7  experiment: pod-delete, Result: Pass

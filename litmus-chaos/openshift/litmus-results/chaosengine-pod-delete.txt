@@ -1,0 +1,68 @@
+Name:         okd-chaos
+Namespace:    okd-cluster
+Labels:       <none>
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosEngine
+Metadata:
+  Creation Timestamp:  2020-11-18T19:52:01Z
+  Finalizers:
+    chaosengine.litmuschaos.io/finalizer
+  Generation:        1
+  Resource Version:  370596
+  Self Link:         /apis/litmuschaos.io/v1alpha1/namespaces/okd-cluster/chaosengines/okd-chaos
+  UID:               862c0497-29d7-11eb-ac54-b63c927e1587
+Spec:
+  Annotation Check:  true
+  Appinfo:
+    Appkind:              deployment
+    Applabel:             name=emailservice
+    Appns:                okd-cluster
+  Chaos Service Account:  store-chaos-engine
+  Components:
+    Runner:
+      Image:     litmuschaos/chaos-runner:1.9.0
+  Engine State:  stop
+  Experiments:
+    Name:  pod-delete
+    Spec:
+      Components:
+        Env:
+          Name:   TARGET_CONTAINER
+          Value:  emailservice
+          Name:   DEFAULT_GATHERING
+          Value:  explicit
+          Name:   LIB_IMAGE
+          Value:  litmuschaos/go-runner:latest
+          Name:   LIB
+          Value:  litmus
+          Name:   CHAOS_INTERVAL
+          Value:  10
+          Name:   TOTAL_CHAOS_DURATION
+          Value:  50
+        Resources:
+        Status Check Timeouts:
+      Rank:             0
+  Job Clean Up Policy:  delete
+  Monitoring:           true
+Status:
+  Engine Status:  completed
+  Experiments:
+    Experiment Pod:    pod-delete-2fvt9i-ft4b7
+    Last Update Time:  2020-11-18T19:53:26Z
+    Name:              pod-delete
+    Runner:            okd-chaos-runner
+    Status:            Completed
+    Verdict:           Pass
+Events:
+  Type    Reason                     Age                    From                     Message
+  ----    ------                     ----                   ----                     -------
+  Normal  ChaosEngineInitialized     8m29s                  chaos-operator           okd-chaos-runner created successfully
+  Normal  ExperimentDependencyCheck  8m27s                  okd-chaos-runner         Experiment resources validated for Chaos Experiment: 'pod-delete'
+  Normal  ExperimentJobCreate        8m19s                  okd-chaos-runner         Experiment Job 'pod-delete-2fvt9i' created for Chaos Experiment 'pod-delete'
+  Normal  PreChaosCheck              8m12s                  pod-delete-2fvt9i-ft4b7  AUT: Running
+  Normal  ChaosInject                7m30s (x4 over 8m12s)  pod-delete-2fvt9i-ft4b7  Injecting pod-delete chaos on application pod
+  Normal  PostChaosCheck             7m12s                  pod-delete-2fvt9i-ft4b7  AUT: Running
+  Normal  Summary                    7m12s                  pod-delete-2fvt9i-ft4b7  pod-delete experiment has been Passed
+  Normal  ExperimentJobCleanUp       7m4s                   okd-chaos-runner         Experiment Job 'pod-delete-2fvt9i' is deleted
+  Normal  ChaosEngineCompleted       6m58s                  chaos-operator           Chaos Engine completed, will delete or retain the resources according to jobCleanUpPolicy

@@ -1,0 +1,29 @@
+Name:         okd-chaos-node-memory-hog
+Namespace:    okd-cluster
+Labels:       app.kubernetes.io/part-of=litmus
+              chaosUID=73415677-29dc-11eb-ac54-b63c927e1587
+              controller-uid=78681adc-29dc-11eb-ac54-b63c927e1587
+              job-name=node-memory-hog-k3m6yz
+              name=okd-chaos-node-memory-hog
+Annotations:  <none>
+API Version:  litmuschaos.io/v1alpha1
+Kind:         ChaosResult
+Metadata:
+  Creation Timestamp:  2020-11-18T20:27:27Z
+  Generation:          1
+  Resource Version:    411054
+  Self Link:           /apis/litmuschaos.io/v1alpha1/namespaces/okd-cluster/chaosresults/okd-chaos-node-memory-hog
+  UID:                 79b25c8a-29dc-11eb-ac54-b63c927e1587
+Spec:
+  Engine:      okd-chaos
+  Experiment:  node-memory-hog
+Status:
+  Experimentstatus:
+    Fail Step:  N/A
+    Phase:      Completed
+    Verdict:    Pass
+Events:
+  Type    Reason   Age    From                          Message
+  ----    ------   ----   ----                          -------
+  Normal  Awaited  3m27s  node-memory-hog-k3m6yz-t8k8q  experiment: node-memory-hog, Result: Awaited
+  Normal  Pass     2m21s  node-memory-hog-k3m6yz-t8k8q  experiment: node-memory-hog, Result: Pass

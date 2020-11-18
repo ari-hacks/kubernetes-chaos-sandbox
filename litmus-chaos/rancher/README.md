@@ -5,8 +5,9 @@
  - Run experiments
 
 #### Requirements
-- Kubernetes/kubectl  
-- Vagrant
+- Kubernetes/kubectl
+- [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+- [Vagrant](https://www.vagrantup.com/docs/installation)
 - plugins for Vagrant
 
 #### Create a Rancher Server with a single node cluster
