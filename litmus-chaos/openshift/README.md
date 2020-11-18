@@ -31,7 +31,7 @@ Note: OKD prompts you to create a project, these projects act as clusters/namesp
 
 
 
-#### Deploy the demo mircoservice 
+#### Deploy the demo mircoservice and install Litmus
 
 1. In the terminal set the context to the project you created
 ```BASH
@@ -59,7 +59,7 @@ oc apply -f https://litmuschaos.github.io/litmus/litmus-operator-v1.9.0.yaml
  rm litmus.tar.gz
 find chaos-charts-1.9.0 -name experiments.yaml | grep generic | xargs oc apply -n okd-cluster -f
 ```
-4. Create Service Account
+6. Create Service Account
 ```BASH
  oc create -f rbac.yaml
 ```
@@ -71,7 +71,7 @@ find chaos-charts-1.9.0 -name experiments.yaml | grep generic | xargs oc apply -
   oc delete chaosengine okd-chaos -n okd-cluster
 ```
 
-1. Run the experiment and watch
+2. Run the experiment and watch
 ```BASH
   oc create -f litmus/pod-delete.yaml -n okd-cluster
     
