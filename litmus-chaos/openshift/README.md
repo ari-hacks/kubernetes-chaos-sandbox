@@ -1,5 +1,5 @@
 #### TODOS
- - Create a single node OKD cluster with minishift
+ - Create a single node OKD cluster with minishift (some experiments require multi node)
  - Deploy the demo [mircoservice](https://github.com/GoogleCloudPlatform/microservices-demo)
  - Run experiments
 

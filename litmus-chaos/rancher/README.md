@@ -1,5 +1,5 @@
 #### TODOS
- - Create a Rancher Server with a single node cluster
+ - Create a Rancher Server with a single node cluster (some experiments require multi node)
  - Configure rancher cluster
  - Deploy the demo mircoservice [sock shop](https://github.com/microservices-demo/microservices-demo)
  - Run experiments
