@@ -1,5 +1,5 @@
 #### TODOS
- - Deploy a HA production ready cluster with [Kubespray](https://github.com/kubernetes-sigs/kubespray)
+ - Create a HA production ready cluster with [Kubespray](https://github.com/kubernetes-sigs/kubespray)
  - Deploy the demo [mircoservice](https://github.com/GoogleCloudPlatform/microservices-demo)
  - Setup and run Gremlin 
 
@@ -19,28 +19,28 @@ Note: This repo uses [kubespray](https://github.com/kubernetes-sigs/kubespray)
     cd kubespray 
    ```
 2. Install dependencies
-```BASH
-pip3 install -r requirements.txt
-```  
+    ```BASH
+    pip3 install -r requirements.txt
+    ```  
 
 3. Bring up vagrant (this can take awhile)
-```BASH
-vagrant up
-```
+    ```BASH
+    vagrant up
+    ```
 4. Setup access to the cluster globally
-```BASH
-#modify: group_vars/k8s-cluster/k8s-cluster.yml to
-kubeconfig_localhost: true
-#navigate to artifacts directory
-#/inventory/sample/artifacts
-cp admin.conf ~/.kube/config
-```
+    ```BASH
+    #modify: group_vars/k8s-cluster/k8s-cluster.yml to
+    kubeconfig_localhost: true
+    #navigate to artifacts directory
+    #/inventory/sample/artifacts
+    cp admin.conf ~/.kube/config
+    ```
 5. Check nodes are up
-```BASH
-kubectl get nodes
+    ```BASH
+    kubectl get nodes
 
-kubectl get pods --all-namespaces
-```
+    kubectl get pods --all-namespaces
+    ```
 
 
 #### Deploy the demo mircoservice
@@ -48,20 +48,19 @@ kubectl get pods --all-namespaces
 1. Navigate to the base directory `/gremlin`
 
 2. Create a namespace for the mircoservice 
-```BASH
-kubectl create namespace sock-shop
-```
+    ```BASH
+    kubectl create namespace sock-shop
+    ```
 3. Deploy it
-```BASH
-kubectl apply -f sock-shop.yaml
-```
-
+    ```BASH
+    kubectl apply -f sock-shop.yaml
+    ```
 4. Check pods are running
-```BASH
-kubectl get pods --namespace sock-shop
-#or
-kubectl get pods --namespace sock-shop --watch
-```
+    ```BASH 
+    kubectl get pods --namespace sock-shop
+    #or
+    kubectl get pods --namespace sock-shop --watch
+    ```
 5. Get front deployment
    ```BASH
    kubectl get deploy front-end -n sock-shop -o jsonpath='{.spec.template.spec.containers[?(@.name == "front-end")].ports[0].containerPort}'
@@ -74,7 +73,7 @@ kubectl get pods --namespace sock-shop --watch
 
 
 2. Install the Gremlin client with helm
-    ```BASH
+   ```BASH
     #NOTE:first change the env variables to match your team credentials
     helm repo add gremlin https://helm.gremlin.com
     ```
@@ -103,9 +102,9 @@ kubectl get pods --namespace sock-shop --watch
     ### or use the [API](https://app.gremlin.com/api#/attacks/createhttps://app.gremlin.com/api#/attacks/create)
 
 6. Clean up
-```BASH
-helm uninstall -n gremlin gremlin
-```
+    ```BASH
+    helm uninstall -n gremlin gremlin
+    ```
 
 #### Resources
 
