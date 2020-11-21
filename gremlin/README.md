@@ -12,24 +12,30 @@
 
 #### Deploy a HA production ready cluster with Kubespray
 
-Note: This repo contains [kubespray](https://github.com/kubernetes-sigs/kubespray) already navigate to `/kubespray` to continue 
-1. Install dependencies
+Note: This repo uses [kubespray](https://github.com/kubernetes-sigs/kubespray) 
+1. clone the repo and cd into it 
+   ```BASH
+    https://github.com/kubernetes-sigs/kubespray.git
+    cd kubespray 
+   ```
+2. Install dependencies
 ```BASH
 pip3 install -r requirements.txt
 ```  
 
-2. Bring up vagrant (this can take awhile)
+3. Bring up vagrant (this can take awhile)
 ```BASH
 vagrant up
 ```
-3. Setup access to the cluster globally
+4. Setup access to the cluster globally
 ```BASH
+#modify: group_vars/k8s-cluster/k8s-cluster.yml to
+kubeconfig_localhost: true
 #navigate to artifacts directory
 #/inventory/sample/artifacts
 cp admin.conf ~/.kube/config
 ```
-
-4. Check nodes are up
+5. Check nodes are up
 ```BASH
 kubectl get nodes
 
