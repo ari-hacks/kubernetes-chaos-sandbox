@@ -4,7 +4,6 @@
 - [x] [Kind](/litmus-chaos/kind/)
 - [x] [Openshift](/litmus-chaos/openshift)
 - [x] [Rancher](/litmus-chaos/rancher)
-- [ ] Kafka  
 
 #### Resources from Litmus
 
