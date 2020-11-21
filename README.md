@@ -22,7 +22,7 @@ A sandbox repo of chaos experiment tutorials with [Gremlin](https://www.gremlin.
 #### Quick Links to Tutorials ☝️
 
 - [x] [Litmus](/litmus-chaos/)
-- [ ] [Gremlin](/gremlin)
+- [x] [Gremlin](/gremlin)
 - [ ] [Chaos Mesh](/chaos-mesh)
 
 #### Quick Link to Kubernetes setup
@@ -30,4 +30,4 @@ A sandbox repo of chaos experiment tutorials with [Gremlin](https://www.gremlin.
 - [x] [Rancher - Single node cluster](/litmus-chaos/rancher/README.md)
 - [x] [Openshift(OKD) - Single node cluster](/litmus-chaos/openshift/README.md)
 - [x] [Kind single node cluster for dev](/litmus-chaos/kind/README.md)
-- [ ] [Kubesrpay - customizable HA cluster]()
+- [x] [Kubesrpay - customizable HA cluster](/gremlin/README.md)
