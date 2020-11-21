@@ -104,6 +104,7 @@ Note: This repo uses [kubespray](https://github.com/kubernetes-sigs/kubespray)
 6. Clean up
     ```BASH
     helm uninstall -n gremlin gremlin
+    vagrant destroy -f
     ```
 
 #### Resources
