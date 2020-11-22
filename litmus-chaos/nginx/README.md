@@ -1,12 +1,14 @@
-#### TODOS
-- Install Litmus
-- Create nginx server with docker image 
-- Run container-kill experiment on pod 
+### TODOS
+➜ [Create nginx server with docker image](#create-nginx-server)
 
-#### Requirements
+➜ [Install Litmus](#install-litmus)
+
+➜ [Run container-kill experiment on pod ](#run-container-kill-experiment)
+
+### Requirements
 - Kubernetes/kubectl  
 
-#### Setting up pod 
+### Create Nginx Server 
 
 1. Create an nginx namepsace 
     ```BASH
@@ -16,7 +18,7 @@
     ```BASH
     kubectl create deployment nginx --image=nginx -n nginx
     ```
-3. Check pod was created successfully and has a Ready and Running status 
+3. Check pod was created successfully and has a ready and running status 
     ```BASH
     kubectl get pods --all-namespaces
     ```
@@ -29,7 +31,7 @@
     kubectl get svc -n nginx
     ```
 
-#### Install Litmus 
+### Install Litmus 
 
 1. Apply the LitmusChaos Operator manifest
     ```BASH 
@@ -59,12 +61,14 @@
     #annotate application
     kubectl annotate deploy/nginx litmuschaos.io/chaos="true" -n nginx
     ```
-5. Prepare Chaos Engine and run it
+
+### Run Container Kill Experiment
+1. Prepare Chaos Engine and run it
     ```BASH
     #create chaosengine.yaml and apply manifest
     kubectl apply -f chaosengine.yaml
     ```
-6. Observe Results (Takes a few seconds for command to turnover, results initially in `await` state)
+2. Observe Results (Takes a few seconds for command to turnover, results initially in `await` state)
     ```BASH
      kubectl describe chaosengine nginx-chaos -n nginx
      kubectl describe chaosresult nginx-chaos-container-kill -n nginx
@@ -72,7 +76,7 @@
      kubectl describe chaosengine nginx-chaos -n nginx > chaosengine.txt
      kubectl describe chaosresult nginx-chaos-container-kill -n nginx > chaosresult.txt
     ```
-7. Uninstall
+3. Uninstall
     ```BASH
     kubectl delete -f https://litmuschaos.github.io/litmus/litmus-operator-v1.9.0.yaml
     kubectl delete chaosengine --all -n nginx
