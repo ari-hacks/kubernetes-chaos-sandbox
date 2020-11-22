@@ -63,7 +63,7 @@ Note: I am using ranchers getting stared  with Vagrant configuration along with 
     ```
 7. Navigate back to browser and wait for cluster to have an active status 
    
-8. Once created click on the cluster to access the dashboard.
+8. Once created click on the cluster to access the dashboard
    
 9.  Under `Kubeconfig File` copy the file contents and put it in a file under this dir
     ```BASH
@@ -74,7 +74,7 @@ Note: I am using ranchers getting stared  with Vagrant configuration along with 
 
 ### Deploy the Microservice 
 
-1. Check you have access to rancher on your local machine, deploy demo microservice, verify they are running
+1. Check you have access to rancher on your local machine, deploy demo microservice, verify pods are running
    
     ```BASH
     kubectl --kubeconfig kube.yaml get pods --namespace=cattle-system
