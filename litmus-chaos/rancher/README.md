@@ -1,11 +1,11 @@
 ### TODOS
   ➜ [Create a Rancher Server with a single node cluster (some experiments require multi node)](#create-a-rancher-server)
 
-  ➜ [Configure rancher cluster](#configure-rancher-cluster)
+  ➜ [Configure Rancher Cluster](#configure-rancher-cluster)
 
-  ➜ [Deploy the demo microservice and install Litmus](#deploy-the-microservice-and-install-litmus)
+  ➜ [Deploy the Demo Microservice and Install Litmus](#deploy-the-microservice-and-install-litmus)
 
-  ➜ [Run experiments and observe (repeat steps for each experiment)](#run-experiments-and-observe)
+  ➜ [Run Experiments and Observe (repeat steps for each experiment)](#run-experiments-and-observe)
 
 ### Requirements
 - Kubernetes/kubectl
