@@ -1,17 +1,22 @@
-#### TODOS
- - Create a single node OKD cluster with minishift (some experiments require multi node)
- - Deploy the demo [mircoservice](https://github.com/GoogleCloudPlatform/microservices-demo)
- - Run experiments
+### TODOS
+ ➜ [Create a single node OKD cluster with minishift (some experiments require multi node)](#create-okd-cluster-with-minishift)
 
-#### Requirements
+➜ [Deploy the Demo Microservice and Install Litmus](#deploy-demo-microservice-and-install-litmus)
+
+➜ [Run Experiments and Observe](#run-experiments-and-observe)
+
+### Requirements
 - Kubernetes/kubectl 
 - VirtualBox 
 - minishift
 - [`hyperkit` and `docker-machine-driver-hyperkit`](https://docs.okd.io/3.11/minishift/getting-started/setting-up-virtualization-environment.html)
 
-#### Create a single node OKD cluster with minishift
+Note: I am using this demo [microservice](https://github.com/GoogleCloudPlatform/microservices-demo)
+
+### Create OKD cluster with minishift
 
 1. Run minishift start command 
+   
       ```BASH
       minishift start
       #if you run into errors skip startup checks
@@ -19,6 +24,7 @@
       ```  
 
 2. Display path needed for  `oc` binary
+   
     ```BASH
     minishift oc-env
     #add output path to PATH environment variable
@@ -31,28 +37,33 @@ Note: OKD prompts you to create a project, these projects act as clusters/namesp
 
 
 
-#### Deploy the demo mircoservice and install Litmus
+### Deploy Demo Microservice and Install Litmus
 
 1. In the terminal set the context to the project you created
+   
     ```BASH
     oc project okd-cluster
     ```
 2. Deploy the microservice to the cluster 
+   
     ```BASH
     oc apply -f gcp-microservice.yaml
     #check status
     oc get pods -n okd-cluster
     ```
 3. Access web frontend with external ip
+   
    ```BASH
     oc port-forward deployment/frontend 8080:8080
     ```
 
 4. Deploy Litmus ChaosOperator
+
     ```BASH
     oc apply -f https://litmuschaos.github.io/litmus/litmus-operator-v1.9.0.yaml
     ```
 5. Install Litmus Experiments
+
     ```BASH
     curl -sL https://github.com/litmuschaos/chaos-charts/archive/1.9.0.tar.gz -o litmus.tar.gz
     tar -zxvf litmus.tar.gz
@@ -60,24 +71,28 @@ Note: OKD prompts you to create a project, these projects act as clusters/namesp
     find chaos-charts-1.9.0 -name experiments.yaml | grep generic | xargs oc apply -n okd-cluster -f
     ```
 6. Create Service Account
+
     ```BASH
     oc create -f rbac.yaml
     ```
 
-#### Run experiments and observe (repeat steps for each experiment)
+### Run experiments and observe
 
 1. Delete any existing Chaos engines in the namespace
+
     ```BASH
     oc delete chaosengine okd-chaos -n okd-cluster
     ```
 
 2. Run the experiment and watch
+
     ```BASH
     oc create -f litmus/pod-delete.yaml -n okd-cluster
     
     oc get pods -n okd-cluster --watch
     ```
 3. Observe Results (Takes a few seconds for command to turnover, results initially in `await` state)
+
     ```BASH
     oc describe chaosengine okd-chaos -n okd-cluster
 
@@ -90,6 +105,7 @@ Note: OKD prompts you to create a project, these projects act as clusters/namesp
     ```
 
 4. Uninstall and clean up
+
     ```BASH
     oc delete -f https://litmuschaos.github.io/litmus/litmus-operator-v1.9.0.yaml
 
