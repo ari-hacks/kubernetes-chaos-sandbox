@@ -1,0 +1,20 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: stress-cpu-example
+  namespace: chaos-mesh
+spec:
+  action: stress-cpu
+  mode: one
+  selector:
+    labelSelectors:
+      "name": front-end
+    namespaces:
+      - sock-shop
+  stressors:
+    cpu: 
+      workers: 1
+      load: 100
+  duration: "30s"
+  scheduler:
+    cron: "@every 5m"

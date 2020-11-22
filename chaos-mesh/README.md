@@ -46,68 +46,85 @@ Note: This repo uses [kubespray](https://github.com/kubernetes-sigs/kubespray)
 
 #### Deploy the demo mircoservice
 
-1. Navigate to the base directory `/gremlin`
-
-2. Create a namespace for the mircoservice 
+1. Create a namespace for the mircoservice 
     ```BASH
     kubectl create namespace sock-shop
     ```
-3. Deploy it
+2. Deploy it
     ```BASH
     kubectl apply -f sock-shop.yaml
     ```
-4. Check pods are running
+3. Check pods are running
     ```BASH 
     kubectl get pods --namespace sock-shop
     #or
     kubectl get pods --namespace sock-shop --watch
     ```
-5. Get front deployment
+4. Setup port forwarding
    ```BASH
    kubectl get deploy front-end -n sock-shop -o jsonpath='{.spec.template.spec.containers[?(@.name == "front-end")].ports[0].containerPort}'
 
    kubectl port-forward deploy/front-end -n sock-shop 3000:8079
+   #127.0.0.1:3000
    ```
-#### Setup Gremlin
-
-1. Once logged in get the team id and secret key from the [Teams page]([Setup](https://app.gremlin.com/settings/teams)) and download
-
-
-2. Install the Gremlin client with helm
+#### Deploying Chaos Mesh
+1. Clone the repo in `/chaos-mesh`
    ```BASH
-    #NOTE:first change the env variables to match your team credentials
-    helm repo add gremlin https://helm.gremlin.com
+   https://github.com/chaos-mesh/chaos-mesh.git
+   ```
+
+2. Install and create chaos mesh
+   ```BASH
+   kubectl apply -f ./chaos-mesh/manifests/crd.yaml
+
+   kubectl create ns chaos-mesh
+    helm upgrade --install chaos-mesh ./chaos-mesh/helm/chaos-mesh \
+    -n chaos-mesh \
+    --set dashboard.create=true
+   ```
+
+3. Check pods are running and CRDs are present
+   ```BASH
+   kubectl get pods --namespace chaos-mesh
+   kubectl get crds
+   ```
+4. Add monitoring
+   ```BASH
+    kubectl get deploy chaos-dashboard -n chaos-mesh -o=jsonpath="{.spec.template.spec.containers[0].ports[0].containerPort}{'\n'}"
+   ```
+5. Expose port
+   ```BASH
+   kubectl port-forward -n chaos-mesh svc/chaos-dashboard 2333:2333
+   #127.0.0.1:2333
+   ```
+   
+#### Setup and run experiments(repeat steps for each experiment)
+
+1. Run experiments via yaml config
+   ```BASH
+    kubectl apply -f chaos-experiments/pod-kill.yaml
     ```
-3. Create a namespace for the client
-    ```BASH
-    kubectl create namespace gremlin
-    ```
-4. Run to install (replace credentials)
-   ```BASH
-   export GREMLIN_TEAM_ID=<team-id>
-   export GREMLIN_CLUSTER_ID=<cluster-di> #can be anything
-   export GREMLIN_TEAM_SECRET=<team-scale>
 
-   helm install gremlin gremlin/gremlin \
-    --namespace gremlin \
-    --set gremlin.secret.managed=true \
-    --set gremlin.secret.type=secret \
-    --set gremlin.secret.teamID=$GREMLIN_TEAM_ID \
-    --set gremlin.secret.clusterID=$GREMLIN_CLUSTER_ID \
-    --set gremlin.secret.teamSecret=$GREMLIN_TEAM_SECRET
-   ```
-5. In gremlin you can check and run attacks from the intuitive dashboard
+2. Monitor results
    ```BASH
-   https://app.gremlin.com/clients/hosts
-   ```
-    ### or use the [API](https://app.gremlin.com/api#/attacks/createhttps://app.gremlin.com/api#/attacks/create)
+   kubectl describe podchaos -n chaos-mesh
 
-6. Clean up
+   http://localhost:2333
+   ```
+
+3. Clean up
     ```BASH
-    helm uninstall -n gremlin gremlin
+    kubectl delete -f chaos-experiments/pod-kill.yaml -n chaos-mesh
+    helm delete chaos-mesh -n chaos-mesh
+    kubectl delete namespace sock-shop
+    vagrant halt
     vagrant destroy -f
     ```
 
+
+
 #### Resources
 
-[Official Gremlin docs](https://www.gremlin.com/community/tutorials/how-to-install-and-use-gremlin-with-kubernetes/)
+[Official Chaos mesh docs](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment)
+
+[Blog](https://dev.to/craigmorten/k8s-chaos-dive-2-chaos-mesh-part-1-2i96)
