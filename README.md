@@ -27,10 +27,10 @@ A sandbox repo of chaos experiment tutorials with [Gremlin](https://www.gremlin.
 
 #### Quick Link to Kubernetes setup
 
-- [x] [Rancher - Single node cluster](/litmus-chaos/rancher/README.md)
-- [x] [Openshift(OKD) - Single node cluster](/litmus-chaos/openshift/README.md)
-- [x] [Kind single node cluster for dev](/litmus-chaos/kind/README.md)
-- [x] [Kubesrpay - customizable HA cluster](/gremlin/README.md)
+- [x] [Rancher - Single node cluster](/litmus-chaos/rancher#create-a-rancher-server)
+- [x] [Openshift(OKD) - Single node cluster](/litmus-chaos/openshift#create-okd-cluster-with-minishift)
+- [x] [Kind single node cluster for dev](/litmus-chaos/kind#create-kind-cluster)
+- [x] [Kubesrpay - customizable HA cluster](/gremlin#create-kubespray-cluster)
 
 #### Additional tutorials
 - [ ] [Setting up Prometheus and Grafana monitoring on K8s]()
