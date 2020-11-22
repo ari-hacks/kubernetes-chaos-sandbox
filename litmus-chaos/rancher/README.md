@@ -5,7 +5,7 @@
 
   ➜ [Deploy the demo microservice](#deploy-the-microservice)
 
-  ➜ [Run experiments and observe (repeat steps for each experiment](#run-experiments-and-observe)
+  ➜ [Run experiments and observe (repeat steps for each experiment)](#run-experiments-and-observe)
 
 ### Requirements
 - Kubernetes/kubectl
