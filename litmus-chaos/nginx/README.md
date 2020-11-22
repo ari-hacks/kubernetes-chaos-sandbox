@@ -1,5 +1,5 @@
 ### TODOS
-➜ [Create nginx server with docker image](#create-nginx-server)
+➜ [Create Nginx Server with Docker Image](#create-nginx-server)
 
 ➜ [Install Litmus](#install-litmus)
 
