@@ -3,8 +3,8 @@
 
  ➜ [Deploy the demo microservice](#deploy-demo-microservice)
 
- ➜ [Deploying Chaos Mesh](#deploy-chaos-mesh)
- 
+ ➜ [Deploy Chaos Mesh](#deploy-chaos-mesh)
+
  ➜ [Setup and run experiments (repeat steps for each experiment)](#setup-and-run-experiments)
 
 ### Requirements
@@ -22,6 +22,8 @@ Note: This repo uses [kubespray](https://github.com/kubernetes-sigs/kubespray)
    ```BASH
     https://github.com/kubernetes-sigs/kubespray.git
     cd kubespray 
+    #modify: group_vars/k8s-cluster/k8s-cluster.yml to
+    kubeconfig_localhost: true
    ```
 2. Install dependencies
    
@@ -37,8 +39,6 @@ Note: This repo uses [kubespray](https://github.com/kubernetes-sigs/kubespray)
 4. Setup access to the cluster globally
    
     ```BASH
-    #modify: group_vars/k8s-cluster/k8s-cluster.yml to
-    kubeconfig_localhost: true
     #navigate to artifacts directory
     #/inventory/sample/artifacts
     cp admin.conf ~/.kube/config
@@ -79,7 +79,7 @@ Note: This repo uses [kubespray](https://github.com/kubernetes-sigs/kubespray)
    kubectl port-forward deploy/front-end -n sock-shop 3000:8079
    #127.0.0.1:3000
    ```
-### Deploying Chaos Mesh
+### Deploy Chaos Mesh
 1. Clone the repo in `/chaos-mesh`
    
    ```BASH
@@ -142,7 +142,7 @@ Note: This repo uses [kubespray](https://github.com/kubernetes-sigs/kubespray)
     ```
 
 
-#### Resources
+### Resources
 
 [Official Chaos mesh docs](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment)
 
