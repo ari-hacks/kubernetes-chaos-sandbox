@@ -103,7 +103,7 @@ Note: This repo uses [kubespray](https://github.com/kubernetes-sigs/kubespray)
    kubectl get pods --namespace chaos-mesh
    kubectl get crds
    ```
-4. Add monitoring
+4. Get chaos-dashboard port info
    
    ```BASH
     kubectl get deploy chaos-dashboard -n chaos-mesh -o=jsonpath="{.spec.template.spec.containers[0].ports[0].containerPort}{'\n'}"
