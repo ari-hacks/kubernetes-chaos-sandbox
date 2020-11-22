@@ -59,7 +59,7 @@ Note: I am using the [sock shop](https://github.com/microservices-demo/microserv
    ```BASH
    kubectl create -f rbac.yaml
    ```
-5. Access url of sock shop microservice
+5. Get front-end deployment port info
    
     ```BASH
      kubectl get deploy front-end -n sock-shop -o jsonpath='{.spec.template.spec.containers[?(@.name == "front-end")].ports[0].containerPort}'

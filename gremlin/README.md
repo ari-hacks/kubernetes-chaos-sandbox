@@ -70,7 +70,7 @@ Note: This repo uses [kubespray](https://github.com/kubernetes-sigs/kubespray) a
     #or
     kubectl get pods --namespace sock-shop --watch
     ```
-5. Get front deployment
+5. Get front-end deployment port info
    
    ```BASH
    kubectl get deploy front-end -n sock-shop -o jsonpath='{.spec.template.spec.containers[?(@.name == "front-end")].ports[0].containerPort}'

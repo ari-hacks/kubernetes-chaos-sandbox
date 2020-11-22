@@ -71,7 +71,7 @@ Note: This repo uses [kubespray](https://github.com/kubernetes-sigs/kubespray)
     #or
     kubectl get pods --namespace sock-shop --watch
     ```
-4. Setup port forwarding
+4. Get front-end deployment port info and setup port forwarding
    
    ```BASH
    kubectl get deploy front-end -n sock-shop -o jsonpath='{.spec.template.spec.containers[?(@.name == "front-end")].ports[0].containerPort}'
