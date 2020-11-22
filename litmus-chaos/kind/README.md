@@ -1,9 +1,9 @@
 ### TODOS
- ➜ [Create a kind cluster](#create-kind-cluster)
+ ➜ [Create a Kind Cluster](#create-kind-cluster)
 
- ➜ [Deploy the demo microservice and install Litmus](#deploy-demo-microservice-and-install-litmus)
+ ➜ [Deploy the Demo Microservice and Install Litmus](#deploy-demo-microservice-and-install-litmus)
 
- ➜ [Run experiments and observe (repeat steps for each experiment)](#run-experiments-and-observe)
+ ➜ [Run Experiments and Observe (repeat steps for each experiment)](#run-experiments-and-observe)
 
 ### Requirements
 - Kubernetes/kubectl  
