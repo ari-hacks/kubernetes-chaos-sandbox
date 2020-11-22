@@ -5,7 +5,7 @@ metadata:
   namespace: sock-shop
 spec:
   # It can be true/false
-  annotationCheck: 'false'
+  annotationCheck: 'true'
   #ex. values: sock-shop:name=carts
   auxiliaryAppInfo: ""
   engineState: 'active'

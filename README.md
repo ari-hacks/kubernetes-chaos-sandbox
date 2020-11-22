@@ -23,7 +23,7 @@ A sandbox repo of chaos experiment tutorials with [Gremlin](https://www.gremlin.
 
 - [x] [Litmus](/litmus-chaos/)
 - [x] [Gremlin](/gremlin)
-- [ ] [Chaos Mesh](/chaos-mesh)
+- [x] [Chaos Mesh](/chaos-mesh)
 
 #### Quick Link to Kubernetes setup
 
