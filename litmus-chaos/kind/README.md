@@ -31,7 +31,7 @@ Note: I am using the [sock shop](https://github.com/microservices-demo/microserv
     kubectl get nodes
     ```
 
-### Deploy the demo microservice and install Litmus
+### Deploy demo microservice and install Litmus
 
 1. Deploy demo microservice and verify pods are running 
    

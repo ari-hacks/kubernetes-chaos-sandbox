@@ -3,7 +3,7 @@
 
   ➜ [Configure rancher cluster](#configure-rancher-cluster)
 
-  ➜ [Deploy the demo microservice](#deploy-the-microservice)
+  ➜ [Deploy the demo microservice and install Litmus](#deploy-the-microservice-and-install-litmus)
 
   ➜ [Run experiments and observe (repeat steps for each experiment)](#run-experiments-and-observe)
 
@@ -72,7 +72,7 @@ Note: I am using ranchers getting stared  with Vagrant configuration along with 
     #insert(i),paste,save and quite (:wq)
     ```
 
-### Deploy the Microservice 
+### Deploy the Microservice and install Litmus
 
 1. Check you have access to rancher on your local machine, deploy demo microservice, verify pods are running
    
