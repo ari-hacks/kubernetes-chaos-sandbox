@@ -139,6 +139,7 @@ Note: This repo uses [kubespray](https://github.com/kubernetes-sigs/kubespray)
     kubectl delete namespace sock-shop
     vagrant halt
     vagrant destroy -f
+    kubectl config use-context docker-desktop
     ```
 
 
