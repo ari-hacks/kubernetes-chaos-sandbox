@@ -119,7 +119,9 @@ Note: This repo uses [kubespray](https://github.com/kubernetes-sigs/kubespray) a
    
     ```BASH
     helm uninstall -n gremlin gremlin
+    vagrant halt
     vagrant destroy -f
+    kubectl config use-context docker-desktop
     ```
 
 ### Resources
