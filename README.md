@@ -33,4 +33,4 @@ A sandbox repo of chaos experiment tutorials with [Gremlin](https://www.gremlin.
 - [x] [Kubesrpay - customizable HA cluster](/gremlin/README.md#create-kubespray-cluster)
 
 #### Additional tutorials
-- [ ] [Setting up Prometheus and Grafana monitoring on K8s]()
+- [x] [Setting up Prometheus and Grafana monitoring on K8s](https://github.com/ari-hacks/kubernetes-monitoring)
